@@ -40,8 +40,8 @@ function Contact() {
           <article className='contact__option'>
             <BsWhatsapp className='contact__option-icon'/>
             <h4>Phone number</h4>
-            <h5>+123456789</h5>  
-            <a href="tel:+31123456789" target="_blank">Call me</a>
+            <h5>0344594705</h5>  
+            <a href="tel:0344594705" target="_blank">Call me</a>
           </article> 
         </div>  
 
