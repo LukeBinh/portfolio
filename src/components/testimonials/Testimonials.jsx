@@ -18,7 +18,7 @@ import 'swiper/css/pagination';
 
 function Testimonials() {
   return (
-    <section id='testimonials'>
+    <section id='qoute'>
       <h5>Famous People</h5>
       <h2>Quote</h2>
 

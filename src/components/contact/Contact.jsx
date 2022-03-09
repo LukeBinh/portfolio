@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import './contact.css'
 
 import {MdOutlineEmail} from 'react-icons/md'
@@ -9,12 +9,18 @@ import emailjs from 'emailjs-com'
 
 
 function Contact() {
-  const form = useRef();
+  const [emty, setEmty] = useState('')
+  const formRef = useRef();
+
 
   const sendEmail = (e) => {
     e.preventDefault();
 
-    emailjs.sendForm('service_0svr949', 'template_4frijcr', form.current, 'T4VLADPzr_y7cYwlM')
+    emailjs.sendForm('service_0svr949', 'template_4frijcr', formRef.current, 'T4VLADPzr_y7cYwlM')
+    formRef.current[0].value = '';
+    formRef.current[1].value = '';
+    formRef.current[2].value = '';
+
   }
   return (
     <section id="contact">
@@ -45,8 +51,8 @@ function Contact() {
           </article> 
         </div>  
 
-        <form ref={form} onSubmit={sendEmail}>
-          <input type="text" name='name' placeholder='Your Full Name' required />
+        <form ref={formRef} onSubmit={sendEmail}>
+          <input onChange={(e) => (setEmty(e.target.value))} type="text" name='name' placeholder='Your Full Name' required />
           <input type="email" name='email' placeholder='Your Email' required />
           <textarea name="message" rows="7" placeholder='Your Message' required></textarea>
           <button type="submit" className='btn btn-primary'>Send Message</button>
